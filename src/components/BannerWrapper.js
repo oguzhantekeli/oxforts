@@ -1,7 +1,7 @@
 import React from "react";
 import {
   slider_1_scratch,
-  slider_1_person,
+  slider_1_person_1,
   slider_1_person_2,
 } from "../images/images";
 const BannerWrapper = () => {
@@ -20,7 +20,7 @@ const BannerWrapper = () => {
                 className="banner-one__scratch"
               />
               <img
-                src={slider_1_person - 1}
+                src={slider_1_person_1}
                 className="banner-one__person"
                 alt=""
               />

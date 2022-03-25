@@ -15,15 +15,21 @@ import Teachers from "./pages/Teachers";
 import TeacherDetails from "./pages/TeacherDetails";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import TopbarOne from "./components/TopbarOne";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import SearchPopup from "./components/SearchPopup";
 
 const App = () => {
   return (
     <>
       <Router>
-        <div class="preloader">
+        <div className="preloader">
           <span></span>
         </div>
-        <div class="page-wrapper">
+        <div className="page-wrapper">
+          <TopbarOne />
+          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -42,7 +48,9 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<div>404-Not found..</div>} />
           </Routes>
+          <Footer />
         </div>
+        <SearchPopup />
       </Router>
     </>
   );
