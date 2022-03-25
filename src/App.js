@@ -13,6 +13,8 @@ import BlogDetails from "./pages/BlogDetails";
 import Pricing from "./pages/Pricing";
 import Teachers from "./pages/Teachers";
 import TeacherDetails from "./pages/TeacherDetails";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const App = () => {
   return (
@@ -36,6 +38,8 @@ const App = () => {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/teachers" element={<Teachers />} />
             <Route path="/teacherdetails/:id" element={<TeacherDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="*" element={<div>404-Not found..</div>} />
           </Routes>
         </div>
