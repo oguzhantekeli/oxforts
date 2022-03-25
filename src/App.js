@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import BecomeTeacher from "./pages/BecomeTeacher";
+import Contact from "./pages/Contact";
+import CourseDetails from "./pages/CourseDetails";
+import Courses from "./pages/Courses";
+import Faq from "./pages/Faq";
+import Gallery from "./pages/Gallery";
+import Blogs from "./pages/Blogs";
+import BlogDetails from "./pages/BlogDetails";
+import Pricing from "./pages/Pricing";
+import Teachers from "./pages/Teachers";
+import TeacherDetails from "./pages/TeacherDetails";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <div class="preloader">
+          <span></span>
+        </div>
+        <div class="page-wrapper">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/becometeacher" element={<BecomeTeacher />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/coursedetails/:id" element={<CourseDetails />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogdetails/:id" element={<BlogDetails />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/teachers" element={<Teachers />} />
+            <Route path="/teacherdetails/:id" element={<TeacherDetails />} />
+            <Route path="*" element={<div>404-Not found..</div>} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
