@@ -1,7 +1,13 @@
 import React from "react";
-
+import InnerBanner from "../components/InnerBanner";
+import GalleryOne from "../components/GalleryOne";
 const Gallery = () => {
-  return <div>Gallery</div>;
+  return (
+    <>
+      <InnerBanner title={"Gallery"} />
+      <GalleryOne />
+    </>
+  );
 };
 
 export default Gallery;
