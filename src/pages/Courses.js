@@ -1,7 +1,13 @@
 import React from "react";
-
+import InnerBanner from "../components/InnerBanner";
+import CourseOneComp from "../components/CourseOneComp";
 const Courses = () => {
-  return <div>Courses</div>;
+  return (
+    <>
+      <InnerBanner title={"Courses"} />
+      <CourseOneComp />
+    </>
+  );
 };
 
 export default Courses;
