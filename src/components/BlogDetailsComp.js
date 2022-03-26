@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import {
-  blog_d_1,
+  blog_d_1_1,
   author_1_1,
   comment_1_1,
   comment_1_2,
@@ -17,7 +18,7 @@ const BlogDetailsComp = () => {
             <div className="col-lg-8">
               <div className="blog-one__single">
                 <div className="blog-one__image">
-                  <img src={blog_d_1} alt="" />
+                  <img src={blog_d_1_1} alt="" />
                 </div>
                 <div className="blog-one__content text-center">
                   <div className="blog-one__meta">
