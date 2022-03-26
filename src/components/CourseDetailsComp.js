@@ -366,12 +366,12 @@ const CourseDetailsComp = () => {
                     <form action="./" className="course-details__comment-form">
                       <h2 className="course-details__title">Add a review</h2>
                       <p className="course-details__comment-form-text">
-                        Rate this Course?{" "}
-                        <a href="./" className="fas fa-star"></a>
-                        <a href="./" className="fas fa-star"></a>
-                        <a href="./" className="fas fa-star"></a>
-                        <a href="./" className="fas fa-star"></a>
-                        <a href="./" className="fas fa-star"></a>
+                        Rate this Course?
+                        <a href="#" className="fas fa-star"></a>
+                        <a href="#" className="fas fa-star"></a>
+                        <a href="#" className="fas fa-star"></a>
+                        <a href="#" className="fas fa-star"></a>
+                        <a href="#" className="fas fa-star"></a>
                       </p>
                       <div className="row">
                         <div className="col-lg-6">
