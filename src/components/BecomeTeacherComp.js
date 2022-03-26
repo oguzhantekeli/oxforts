@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
 const BecomeTeacherComp = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    comment: "",
+  });
+  const { name, email, phone, comment } = formData;
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const userData = { name, email, phone, comment };
+    console.log(userData);
+  };
   return (
     <>
       <section className="become-teacher">
@@ -40,16 +59,42 @@ const BecomeTeacherComp = () => {
                   </h2>
                 </div>
                 <div className="become-teacher__form-content">
-                  <input type="text" placeholder="Your Name" name="name" />
-                  <input type="text" placeholder="Email Address" name="email" />
-                  <input type="text" placeholder="Phone Number" name="phone" />
-                  <input type="text" placeholder="Comment" name="message" />
-                  <button
-                    type="submit"
-                    className="thm-btn become-teacher__form-btn"
-                  >
-                    Apply For It
-                  </button>
+                  <form onSubmit={onSubmit}>
+                    <input
+                      type="text"
+                      placeholder="Ad Soyad"
+                      name="name"
+                      value={name}
+                      onChange={onChange}
+                    />
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      name="email"
+                      value={email}
+                      onChange={onChange}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Telefon"
+                      name="phone"
+                      value={phone}
+                      onChange={onChange}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Mesaj"
+                      name="comment"
+                      value={comment}
+                      onChange={onChange}
+                    />
+                    <button
+                      type="submit"
+                      className="thm-btn become-teacher__form-btn"
+                    >
+                      Apply For It
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
