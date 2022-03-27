@@ -27,7 +27,7 @@ const BannerWrapper = () => {
               <div className="row no-gutters">
                 <div className="col-xl-12">
                   <h3 className="banner-one__title banner-one__light-color">
-                    We Can <br />
+                    We Can 123123 <br />
                     Teach You
                   </h3>
                   <p className="banner-one__tag-line">
