@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   team_1_1,
   course_d_1,
@@ -7,7 +7,37 @@ import {
   lc_1_2,
   lc_1_3,
 } from "../images/images";
+import { Rating } from "react-simple-star-rating";
+
 const CourseDetailsComp = () => {
+  const [rating, setRating] = useState(0);
+  const handleRating = (rate) => {
+    setRating(rate);
+  };
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const { name, email, message } = formData;
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const stars = rating / 20;
+    const commentData = { stars, name, email, message };
+    console.log(commentData);
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+  };
   return (
     <>
       <section className="course-details">
@@ -363,23 +393,53 @@ const CourseDetailsComp = () => {
                         </p>
                       </div>
                     </div>
-                    <form action="./" className="course-details__comment-form">
+                    <form
+                      onSubmit={(e) => {
+                        onSubmit(e);
+                      }}
+                      className="course-details__comment-form"
+                    >
                       <h2 className="course-details__title">Add a review</h2>
-                      <p className="course-details__comment-form-text">
-                        Rate this Course?
-                        <a href="#" className="fas fa-star"></a>
-                        <a href="#" className="fas fa-star"></a>
-                        <a href="#" className="fas fa-star"></a>
-                        <a href="#" className="fas fa-star"></a>
-                        <a href="#" className="fas fa-star"></a>
-                      </p>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          alignItems: "start",
+                        }}
+                      >
+                        <p className="course-details__comment-form-text">
+                          Rate this Course?
+                        </p>
+                        <Rating
+                          onClick={handleRating}
+                          ratingValue={rating}
+                          size={25}
+                        />
+                      </div>
                       <div className="row">
                         <div className="col-lg-6">
-                          <input type="text" placeholder="Your Name" />
-                          <input type="text" placeholder="Email Address" />
+                          <input
+                            type="text"
+                            placeholder="Ad Soyad"
+                            name="name"
+                            value={name}
+                            onChange={onChange}
+                          />
+                          <input
+                            type="email"
+                            placeholder="Email"
+                            name="email"
+                            value={email}
+                            onChange={onChange}
+                          />
                         </div>
                         <div className="col-lg-12">
-                          <textarea placeholder="Write Message"></textarea>
+                          <textarea
+                            placeholder="Yorumunuz"
+                            name="message"
+                            value={message}
+                            onChange={onChange}
+                          ></textarea>
                           <button
                             type="submit"
                             className="thm-btn course-details__comment-form-btn"
