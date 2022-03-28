@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   blog_1_1,
   blog_1_2,
@@ -7,9 +7,41 @@ import {
   blog_1_5,
   blog_1_6,
 } from "../images/images";
+import { useGetPostsQuery, useGetPostQuery } from "../services/postsApi";
+
 const BlogOne = () => {
+  const {
+    data: posts,
+    isError: isErrorPosts,
+    isSuccess: isSuccessPosts,
+  } = useGetPostsQuery();
+  const {
+    data: post,
+    isError: isErrorPost,
+    isSuccess: isSuccessPost,
+  } = useGetPostQuery(11);
+
+  useEffect(() => {
+    posts && post && (isSuccessPost || isSuccessPosts)
+      ? console.log(posts)
+      : console.log("data ready?", isErrorPosts);
+    posts && post && (isSuccessPost || isSuccessPosts)
+      ? console.log(post)
+      : console.log("data ready?", isErrorPost);
+  }, [posts, post, isErrorPost, isErrorPosts, isSuccessPost, isSuccessPosts]);
+
   return (
     <>
+      {isSuccessPosts ? (
+        <div>all posts here...</div>
+      ) : (
+        <div>where are the posts??</div>
+      )}
+      {isSuccessPost ? (
+        <div>this post is about {post.title} ...</div>
+      ) : (
+        <div>where are the posts??</div>
+      )}
       <section className="blog-one blog-page">
         <div className="container">
           <div className="row">
