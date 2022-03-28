@@ -7,7 +7,13 @@ import {
   blog_1_5,
   blog_1_6,
 } from "../images/images";
-import { useGetPostsQuery, useGetPostQuery } from "../services/postsApi";
+import {
+  useGetPostsQuery,
+  useGetPostQuery,
+  useAddPostMutation,
+  useEditPostMutation,
+  useDeletePostMutation,
+} from "../services/postsApi";
 
 const BlogOne = () => {
   const {
@@ -29,19 +35,23 @@ const BlogOne = () => {
       ? console.log(post)
       : console.log("data ready?", isErrorPost);
   }, [posts, post, isErrorPost, isErrorPosts, isSuccessPost, isSuccessPosts]);
+  const [addPost] = useAddPostMutation();
+
+  const newposta = {
+    id: 123123,
+    body: "neque voluptates ut commodi qui incidunt\nut animi commodi",
+    title: "new 123123 title",
+    userId: 2123,
+  };
+  const createNewPost = async (postData) => {
+    await addPost(newposta);
+  };
 
   return (
     <>
-      {isSuccessPosts ? (
-        <div>all posts here...</div>
-      ) : (
-        <div>where are the posts??</div>
-      )}
-      {isSuccessPost ? (
-        <div>this post is about {post.title} ...</div>
-      ) : (
-        <div>where are the posts??</div>
-      )}
+      {/* <button type="button" onClick={() => createNewPost()}>
+        Add New
+      </button> */}
       <section className="blog-one blog-page">
         <div className="container">
           <div className="row">
